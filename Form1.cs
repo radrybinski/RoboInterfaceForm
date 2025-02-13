@@ -12,7 +12,7 @@ namespace RoboInterfaceForm
 
         private string filePath = "";
         private string modelName = "";
-        private string modelVersion =  "";
+        private string modelVersion = "";
         private string apiKey = "";
 
 
@@ -43,10 +43,10 @@ namespace RoboInterfaceForm
         private async void button1_Click(object sender, EventArgs e)
         {
 
-             modelName = textBox2.Text;
-             modelVersion = textBox3.Text;
-             apiKey = textBox4.Text;
-            
+            modelName = textBox2.Text;
+            modelVersion = textBox3.Text;
+            apiKey = textBox4.Text;
+
 
 
             if (string.IsNullOrEmpty(filePath))
@@ -62,7 +62,7 @@ namespace RoboInterfaceForm
                 Detection DT = new Detection(filePath, modelName, modelVersion, apiKey);
                 // Await the async method
                 InferenceResponse result = await Detection.RunDetection();
-                
+
                 DisplayResults(result, filePath);
             }
             catch (Exception ex)
@@ -133,6 +133,15 @@ namespace RoboInterfaceForm
 
         private void label4_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            PlotCSV pyt = new PlotCSV();
+
+            pyt.GeneratePlot();
+
 
         }
     }
